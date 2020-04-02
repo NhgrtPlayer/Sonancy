@@ -4,6 +4,10 @@ import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 function fetcher(url) {
   return fetch(url).then(r => r.json());
@@ -17,47 +21,27 @@ function getPosts() {
   ];
 }
 
-const PostLink = ({ post }) => (
-  <li>
-    <Link href="/post/[id]" as={`/post/${post.id}`}>
-      <a>{post.title}</a>
-    </Link>
-    <style jsx>{`
-      li {
-        list-style: none;
-        margin: 5px 0;
-      }
-
-      a {
-        text-decoration: none;
-        color: blue;
-        font-family: 'Arial';
-      }
-
-      a:hover {
-        opacity: 0.6;
-      }
-    `}</style>
-  </li>
-);
-
-export default function Blog() {
+export default function Index() {
   const { query } = useRouter();
-  const { data, error } = useSWR(
-    `/api/randomQuote${query.author ? '?author=' + query.author : ''}`,
-    fetcher
-  );
-  // The following line has optional chaining, added in Next.js v9.1.5,
-  // is the same as `data && data.author`
-  const author = data?.author;
-  let quote = data?.quote;
-
-  if (!data) quote = 'Loading...';
-  if (error) quote = 'Failed to fetch the quote.';
 
   return (
     <main className="center">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       <Header />
+      <Button variant="contained" color="primary">
+        t ki
+      </Button>
+      
+      <Container maxWidth="sm">
+        <Box my={4}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            Next.js example
+          </Typography>
+          <Link href="/about" color="secondary">
+            Go to the about page
+          </Link>
+        </Box>
+      </Container>
       <Footer />
 
       <style jsx>{`
