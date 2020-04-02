@@ -2,6 +2,8 @@ import Layout from '../components/Layout';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function fetcher(url) {
   return fetch(url).then(r => r.json());
@@ -55,8 +57,8 @@ export default function Blog() {
 
   return (
     <main className="center">
-      <div className="quote">{quote}</div>
-      {author && <span className="author">- {author}</span>}
+      <Header />
+      <Footer />
 
       <style jsx>{`
         main {
