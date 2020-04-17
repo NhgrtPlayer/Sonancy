@@ -15,3 +15,9 @@ yarn-error.log*
 
 # Descriptif du projet
 descriptif.txt
+
+# Visual Studio Code workspace
+*.code-workspace
+
+# config file
+config*

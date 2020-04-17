@@ -6,7 +6,7 @@ export default () => {
   const router = useRouter();
   return (
     <Layout>
-      <h1>{router.query.id}</h1>
+      <h1>Id de la room : {router.query.id}</h1>
       <div className="markdown">
         <Markdown
           source={`
