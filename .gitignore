@@ -1,11 +1,4 @@
 // .gitignore
-# next.js build output
-.next
-# dotenv environment variables file (build for Zeit Now)
-.env
-.env.build
-# ZEIT Now
-.now
 # Dependency directories
 node_modules/
 # Logs
@@ -13,11 +6,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Descriptif du projet
-descriptif.txt
-
 # Visual Studio Code workspace
 *.code-workspace
-
-# config file
-config*
