@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Sonancy/static/css/main.8ab6f918.chunk.css",
+    "main.js": "/Sonancy/static/js/main.c0a3d859.chunk.js",
+    "main.js.map": "/Sonancy/static/js/main.c0a3d859.chunk.js.map",
+    "runtime-main.js": "/Sonancy/static/js/runtime-main.9cf60c50.js",
+    "runtime-main.js.map": "/Sonancy/static/js/runtime-main.9cf60c50.js.map",
+    "static/js/2.f82f0d2b.chunk.js": "/Sonancy/static/js/2.f82f0d2b.chunk.js",
+    "static/js/2.f82f0d2b.chunk.js.map": "/Sonancy/static/js/2.f82f0d2b.chunk.js.map",
+    "index.html": "/Sonancy/index.html",
+    "precache-manifest.01b9caab6e14dfcde33ef3ccf29f5ccd.js": "/Sonancy/precache-manifest.01b9caab6e14dfcde33ef3ccf29f5ccd.js",
+    "service-worker.js": "/Sonancy/service-worker.js",
+    "static/css/main.8ab6f918.chunk.css.map": "/Sonancy/static/css/main.8ab6f918.chunk.css.map",
+    "static/js/2.f82f0d2b.chunk.js.LICENSE.txt": "/Sonancy/static/js/2.f82f0d2b.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/Sonancy/static/media/logo.ee7cd8ed.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9cf60c50.js",
+    "static/js/2.f82f0d2b.chunk.js",
+    "static/css/main.8ab6f918.chunk.css",
+    "static/js/main.c0a3d859.chunk.js"
+  ]
+}
