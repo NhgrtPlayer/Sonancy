@@ -38,7 +38,12 @@ export default function Header() {
           <AppBar position="static">
             <Toolbar>
               <Typography variant="title" color="inherit" className={classes.title}>
+                <div>
                   SONANCY
+                  <div>
+                    A place to hear music, together.
+                  </div>
+                </div>
               </Typography>
               <Button
               variant="contained"

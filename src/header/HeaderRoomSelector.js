@@ -37,7 +37,7 @@ export default function HeaderRoomSelector({open, anchorEl, handleClose}) {
         //router.push('/room/' + roomId);
     }
 
-    return ( 
+    return (
     <Popover
         id='header-room-selector'
         open={open}
