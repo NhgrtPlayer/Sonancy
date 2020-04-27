@@ -5,6 +5,8 @@ import './App.css';
 import Header from './header/Header';
 import RoomList from './rooms/RoomList';
 import Button from '@material-ui/core/Button';
+import CreateRoomDialog from './CreateRoomDialog';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   body: {
@@ -27,12 +29,33 @@ const useStyles = makeStyles({
   },
 });
 
+function getUser() {
+  const isAuthenticated = true;
+  const user = {
+    username: 'NhgrtPlayer',
+    avatar: '',
+  };
+  return ({isAuthenticated, user});
+}
+
+function createRoom(roomData) {
+  console.log("ROOM TO CREATE: ",roomData);
+}
+
 function App() {
   const classes = useStyles();
+  let {isAuthenticated, user} = getUser();
+  const [createRoomOpen, setCreateRoomOpen] = React.useState(false);
 
   return (
     <div className="App">
-      <Header />
+      <Header
+      isAuthenticated={isAuthenticated}
+      user={user}
+      onLogout={() => {isAuthenticated = false;}}/>
+      <Typography>
+        Sonancy is a website used for people to gather in Rooms and listen to sounds and musics together.
+      </Typography>
       <div className={classes.body}>
         <RoomList />
         <div className={classes.actions}>
@@ -40,15 +63,21 @@ function App() {
           variant="contained"
           color="primary"
           className={classes.actionButton}
-          disabled
+          disabled={!isAuthenticated}
+          onClick={() => setCreateRoomOpen(true)}
           >
             CREATE<br/>ROOM
           </Button>
+          <CreateRoomDialog
+            open={createRoomOpen}
+            onClose={() => setCreateRoomOpen(false)}
+            onSubmit={(roomData) => {setCreateRoomOpen(false); createRoom(roomData);}}
+          />
           <Button
           variant="contained"
           color="primary"
           className={classes.actionButton}
-          disabled
+          disabled={!isAuthenticated}
           >
             SOUND<br/>BANK
           </Button>

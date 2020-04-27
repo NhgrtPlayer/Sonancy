@@ -1,15 +1,18 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
+import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { Button } from '@material-ui/core';
-import Drawer from '@material-ui/core/Drawer';
-import HeaderRoomSelector from './HeaderRoomSelector';
+import Avatar from '@material-ui/core/Avatar';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import HeaderLoginForm from './HeaderLoginForm';
+import HeaderRoomSelector from './HeaderRoomSelector';
 import HeaderSignupForm from './HeaderSignupForm';
 
-export default function Header() {
+export default function Header({isAuthenticated, user, onLogout}) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [loginDrawerOpen, setLoginDrawerOpen] = React.useState(false);
@@ -51,9 +54,11 @@ export default function Header() {
               onClick={handleClick}>
                   <div>
                       JOIN ROOM
+                      {!isAuthenticated &&
                       <div>
                           No signup required !
                       </div>
+                      }
                   </div>
               </Button>
               <HeaderRoomSelector
@@ -61,18 +66,48 @@ export default function Header() {
               anchorEl={anchorEl}
               handleClose={handleClose}
               />
-              <Button
-              variant="contained"
-              color="primary"
-              onClick={() => openDrawer(true)}>
-                  LOGIN
-              </Button>
-              <Button
-              variant="contained"
-              color="primary"
-              onClick={() => openDrawer(false)}>
-                  SIGNUP
-              </Button>
+              {!isAuthenticated &&
+              <div>
+                <Button variant="contained" color="primary"
+                onClick={() => openDrawer(true)}>
+                    LOGIN
+                </Button>
+                <Button variant="contained" color="primary"
+                onClick={() => openDrawer(false)}>
+                    SIGNUP
+                </Button>
+              </div>
+              }
+              {isAuthenticated &&
+              <div>
+                <Button onClick={handleClick}>
+                {user.username}
+                <Avatar src={user.avatar} alt={user.username} />
+                </Button>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                  <MenuItem onClick={() => {
+                    handleClose();
+                    onLogout();
+                  }}>
+                    Logout
+                  </MenuItem>
+                </Menu>
+              </div>
+              }
             </Toolbar>
           </AppBar>
           <Drawer anchor={'right'} open={loginDrawerOpen || signupDrawerOpen} onClose={() => closeDrawer()}>
