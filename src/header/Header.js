@@ -84,7 +84,7 @@ export default function Header({isAuthenticated, user, onLogout}) {
                 {user.username}
                 <Avatar src={user.avatar} alt={user.username} />
                 </Button>
-                <Menu
+                {/* <Menu
                   id="menu-appbar"
                   anchorEl={anchorEl}
                   anchorOrigin={{
@@ -105,7 +105,7 @@ export default function Header({isAuthenticated, user, onLogout}) {
                   }}>
                     Logout
                   </MenuItem>
-                </Menu>
+                </Menu> */}
               </div>
               }
             </Toolbar>
