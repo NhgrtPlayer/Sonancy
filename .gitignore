@@ -29,4 +29,4 @@ yarn-error.log*
 *.code-workspace
 
 # Assets
-/assets
+/public/sounds
